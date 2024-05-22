@@ -1,6 +1,7 @@
 import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.ml.feature.{StandardScaler, VectorAssembler}
 import org.apache.spark.sql.functions.col
+import db.{DbConnection}
 
 
 object DataMart {
@@ -13,9 +14,12 @@ object DataMart {
     .config("spark.master", "local[*]")
     .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
     .getOrCreate()
+  private val database = new DbConnection(spark)
 
   def readAndProccess(): DataFrame = {
-    val df = spark.read.option("header", "true").option("sep", "\t").option("inferSchema", "true").csv("truncated.csv").na.fill(0.0)
+//    database.readTable("train_X")
+//    val df = spark.read.option("header", "true").option("sep", "\t").option("inferSchema", "true").csv("truncated.csv").na.fill(0.0)
+    val df = database.readTable("train_X").na.fill(0.0)
     val inputCols: Array[String] = Array(
       "energy-kcal_100g",
       "sugars_100g",
