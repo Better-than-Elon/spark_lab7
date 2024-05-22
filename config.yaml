@@ -1,0 +1,25 @@
+spark:
+  spark.app.name: DefaultName
+  spark.driver.cores: 1
+  # spark.executor.instances: 1
+  spark.driver.maxResultSize: 1g
+  spark.driver.memory: 2g
+  spark.executor.memory: 2g
+  spark.master: local[*]
+  spark.serializer: org.apache.spark.serializer.KryoSerializer
+dataset:
+  data_path: truncated.csv
+  filtered_cols:
+  - completeness
+  - energy_100g
+  - energy-kcal_100g
+  - carbohydrates_100g
+  - proteins_100g
+  - fat_100g
+  - sugars_100g
+  - saturated-fat_100g
+  - salt_100g
+  - sodium_100g
+db:
+    data_table: train_X
+    pred_table: predictions

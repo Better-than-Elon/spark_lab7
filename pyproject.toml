@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "base"
+version = "0.1.0"
+description = ""
+authors = ["Better-than-Elon <arkadyartemenko@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyspark = "^3.5.1"
+findspark = "^2.0.1"
+ipykernel = "^6.29.4"
+pyyaml = "^6.0.1"
+pandas = "^2.2.2"
+matplotlib = "^3.8.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
