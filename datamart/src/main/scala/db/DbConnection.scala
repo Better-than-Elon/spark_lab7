@@ -3,8 +3,8 @@ package db
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 
-class DbConnection(spark: SparkSession) {
-  private val JDBC_URL = s"jdbc:oracle:thin:@localhost:1521/FREE"
+class DbConnection(spark: SparkSession, host: String) {
+  private val JDBC_URL = "jdbc:oracle:thin:@" + host + ":1521/FREE"
   private val USER = "system"
   private val PASSWORD = "12345"
 
